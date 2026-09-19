@@ -90,3 +90,43 @@ Open **`http://localhost:5173`** in your browser.
   * Canonical Query String format:
     * Token: `appId={appId}&signTime={signTime}`
     * Business endpoints: `appData={appDataHex}&signTime={signTime}`
+
+---
+
+## 📊 Architecture & Sequence Diagrams (Mermaid)
+
+Comprehensive sequence diagrams, flowcharts, and component architecture graphs for **SukiPay Client ↔ Kirara Gateway Server** are documented in:
+👉 **[`DIAGRAMS_SUKIPAY_KIRARA.md`](DIAGRAMS_SUKIPAY_KIRARA.md)**
+
+Includes:
+1. **Authentication & JWT Token Handshake Flow** (HMAC canonical signing & AES-256-GCM response)
+2. **Secure Order Ingestion & Wire Cryptography** (`/api/v2/pay` with Replay Guard)
+3. **Dual Checkout Experience** (Hosted Cashier, QR & Embedded POS Simulator)
+4. **ISO 8583 Core Financial Switch Translation** (MTI 0200, 0210, 0400, 0220 & live stream)
+5. **Complete Order & Refund Lifecycle State Machine** (Pending, Paid, Expired, Partial/Full Refunds)
+6. **Asynchronous Webhook Notification & Retry Engine**
+7. **Order Inquiry, Cancellation & Multi-Tier Refund Operations**
+8. **Component & Layered System Architecture**
+
+---
+
+## ⚖️ Comparative Architecture Evaluation
+
+For a thorough technical evaluation comparing **SukiPay Client ↔ Kirara Server** against **PassWay Client ↔ CoalaPay Server** across cryptographic engines, ISO 8583:1987 compliance, anti-replay safety, and purpose suitability, see:  
+👉 **[`Comparative.md`](Comparative.md)**
+
+---
+
+## 🎓 Master Study Guide & Curriculum
+
+A comprehensive 12-week study syllabus, textbook guide, and hands-on lab manual covering applied web cryptography (AES-GCM/HMAC), ISO 8583 financial switching, and core banking architecture:  
+👉 **[`begin_master_study.md`](begin_master_study.md)**
+
+---
+
+## 🛡️ Fortran + Qt 6 Cryptographic Bridge & Interface
+
+Complete documentation of the Modern Fortran 2008 + Qt 6.0 desktop suite (`CryptoWorks`), its C-ABI bridge, AES-256-GCM AEAD, HMAC-SHA256 signer, and ISO 8583:1987 financial message switching engine:  
+👉 **[`cryptoWorks_interface.md`](cryptoWorks_interface.md)**
+
+
