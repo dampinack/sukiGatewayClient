@@ -23,8 +23,8 @@ export const DEFAULT_PROFILES: EnvironmentProfile[] = [
     id: 'local-kirara-8080',
     name: 'Kirara Switch (Port 8080)',
     baseUrl: 'http://localhost:8080',
-    appId: 'APP_COALAPAY_TEST_01',
-    appKey: 'E1F2A3B4C5D6E7F809182736455463728192A3B4C5D6E7F80918273645546372',
+    appId: 'CZtest20260915090037',
+    appKey: '09548218645f0070fc80591c858ec7b4a8334fbd0a5aa8fe6bc8d819a849e6fa',
     description: 'Direct local connection to Kirara ISO 8583 payment switch on default port 8080',
     mockMode: false,
   },
@@ -32,8 +32,8 @@ export const DEFAULT_PROFILES: EnvironmentProfile[] = [
     id: 'local-kirara-3000',
     name: 'Kirara Gateway (Port 3000)',
     baseUrl: 'http://localhost:3000',
-    appId: 'APP_COALAPAY_TEST_01',
-    appKey: 'E1F2A3B4C5D6E7F809182736455463728192A3B4C5D6E7F80918273645546372',
+    appId: 'CZtest20260915090037',
+    appKey: '09548218645f0070fc80591c858ec7b4a8334fbd0a5aa8fe6bc8d819a849e6fa',
     description: 'Local connection to Kirara on alternative port 3000',
     mockMode: false,
   },
@@ -41,8 +41,8 @@ export const DEFAULT_PROFILES: EnvironmentProfile[] = [
     id: 'staging-switch',
     name: 'Staging Bank Egress',
     baseUrl: 'https://staging-gw.example.com',
-    appId: 'APP_STAGING_01',
-    appKey: 'E1F2A3B4C5D6E7F809182736455463728192A3B4C5D6E7F80918273645546372',
+    appId: 'CZtest20250903126118',
+    appKey: '6a19bdd546efdf7e2f7836af55a923c53f1dd0d425128546d414b7f93ef97295',
     description: 'Remote banking egress / staging switch environment',
     mockMode: true,
   },
@@ -58,9 +58,9 @@ export const DEFAULT_PROFILES: EnvironmentProfile[] = [
 ];
 
 class SukiApiClient {
-  private readonly PROFILES_STORAGE_KEY = 'suki_profiles_v1';
-  private readonly ACTIVE_PROFILE_KEY = 'suki_active_profile_id_v1';
-  private readonly AUDIT_LOGS_KEY = 'suki_audit_logs_v1';
+  private readonly PROFILES_STORAGE_KEY = 'suki_profiles_v2';
+  private readonly ACTIVE_PROFILE_KEY = 'suki_active_profile_id_v2';
+  private readonly AUDIT_LOGS_KEY = 'suki_audit_logs_v2';
   private readonly MAX_LOGS = 120;
 
   private mockOrders = new Map<string, OrderData>();
