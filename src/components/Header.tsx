@@ -9,6 +9,7 @@ import {
   Settings,
   ShieldCheck,
   XCircle,
+  LayoutDashboard,
 } from 'lucide-react';
 import { apiService } from '../services/api-client';
 import { EnvironmentProfile } from '../types/gateway';
@@ -200,6 +201,17 @@ export const Header: React.FC<HeaderProps> = ({
               className="p-1.5 text-slate-400 hover:text-cyan-400 hover:bg-slate-800 rounded-lg transition hidden md:block"
             >
               <ExternalLink className="w-4 h-4" />
+            </a>
+
+            {/* Kirara Switch Admin Dashboard Link */}
+            <a
+              href={`${activeProfile.baseUrl.replace(/\/+$/, '')}/admin`}
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Open Kirara Server Operator Dashboard (/admin)"
+              className="p-1.5 text-slate-400 hover:text-indigo-400 hover:bg-slate-800 rounded-lg transition hidden md:block"
+            >
+              <LayoutDashboard className="w-4 h-4" />
             </a>
           </div>
 
