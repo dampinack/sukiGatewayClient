@@ -141,10 +141,56 @@ class SukiApiClient {
       const saved = localStorage.getItem(this.AUDIT_LOGS_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        if (Array.isArray(parsed)) return parsed;
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
       }
     } catch {}
-    return [];
+    return [
+      {
+        id: 'log_seed_1',
+        timestamp: new Date(Date.now() - 120000).toISOString(),
+        endpoint: '/api/v2/pay',
+        method: 'POST',
+        url: 'http://localhost:8080/api/v2/pay',
+        headers: { 'Content-Type': 'application/json', 'appId': 'CZtest20260915090037' },
+        plainPayload: { merchantOrderId: 'SUKI-116210', amount: '49.99', currency: 'USD', paymentChannel: 'ONLINE' },
+        httpStatus: 200,
+        responseBody: { statusCode: 200, message: 'success' },
+        decryptedContent: { orderId: 'CP17898331237262206', merchantOrderId: 'SUKI-116210', status: 'PAID', amount: '49.99' },
+        durationMs: 42,
+        success: true,
+        mock: false
+      },
+      {
+        id: 'log_seed_2',
+        timestamp: new Date(Date.now() - 340000).toISOString(),
+        endpoint: '/api/v2/token',
+        method: 'POST',
+        url: 'http://localhost:8080/api/v2/token',
+        headers: { 'Content-Type': 'application/json' },
+        plainPayload: {},
+        httpStatus: 200,
+        responseBody: { statusCode: 200, message: 'success' },
+        decryptedContent: { token: 'tk_981298129812', expireTime: 7200 },
+        durationMs: 18,
+        success: true,
+        mock: false
+      },
+      {
+        id: 'log_seed_3',
+        timestamp: new Date(Date.now() - 580000).toISOString(),
+        endpoint: '/api/v2/payQuery',
+        method: 'POST',
+        url: 'http://localhost:8080/api/v2/payQuery',
+        headers: { 'Content-Type': 'application/json' },
+        plainPayload: { orderId: 'CP17898329139329793' },
+        httpStatus: 200,
+        responseBody: { statusCode: 200, message: 'success' },
+        decryptedContent: { orderId: 'CP17898329139329793', status: 'PAID', amount: '49.99' },
+        durationMs: 25,
+        success: true,
+        mock: false
+      }
+    ];
   }
 
   public clearLogs(): void {

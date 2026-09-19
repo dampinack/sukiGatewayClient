@@ -75,7 +75,27 @@ export const PaymentConsole: React.FC<PaymentConsoleProps> = ({
     decryptedData: any;
     rawResponse: any;
     error?: string;
-  } | null>(null);
+  } | null>(() => {
+    if (typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('demo') === 'order') {
+      return {
+        endpoint: '/api/v2/pay',
+        httpStatus: 200,
+        durationMs: 42,
+        rawResponse: { statusCode: 200, message: 'success' },
+        decryptedData: {
+          orderId: 'CP17898331237262206',
+          merchantOrderId: 'SUKI-116210',
+          status: 'PENDING',
+          amount: '49.99',
+          currency: 'USD',
+          paymentChannel: 'ONLINE',
+          payUrl: 'http://localhost:8080/cashier/pay?orderId=CP17898331237262206',
+          channel: 'ONLINE'
+        }
+      };
+    }
+    return null;
+  });
 
   const handleQuickQuery = (orderId: string) => {
     setTargetOrderId(orderId);

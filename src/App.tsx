@@ -13,7 +13,11 @@ import { EnvironmentProfile } from './types/gateway';
 export function App() {
   const [profiles, setProfiles] = useState<EnvironmentProfile[]>(() => apiService.getProfiles());
   const [activeProfileId, setActiveProfileId] = useState<string>(() => apiService.getActiveProfileId());
-  const [activeTab, setActiveTab] = useState<'console' | 'switch' | 'ledger' | 'crypto'>('console');
+  const [activeTab, setActiveTab] = useState<'console' | 'switch' | 'ledger' | 'crypto'>(() => {
+    const param = new URLSearchParams(window.location.search).get('tab');
+    if (param === 'switch' || param === 'ledger' || param === 'crypto') return param;
+    return 'console';
+  });
   
   // Modals state
   const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);

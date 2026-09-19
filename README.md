@@ -20,6 +20,30 @@ Built with **React 19 + Vite + TypeScript + Tailwind CSS**, SukiPay Client deliv
 
 ---
 
+## 📸 Visual Tour & User Interface
+
+### 1. Payment Console & Order Operations
+Interactive workbench for creating orders, querying status, processing refunds, and acquiring tokens.
+![Payment Console](docs/images/01_payment_console.png)
+
+### 2. Order Creation Result Card & Cashier Integration
+Visual result card featuring direct browser cashier launch, link copying, quick action shortcuts, and virtual POS terminal simulation.
+![Order Creation Result](docs/images/05_order_result_card.png)
+
+### 3. ISO 8583 Financial Switch Packet Inspector
+Real-time financial telemetry streaming MTI 0200/0210 messages, STAN, RRN, and parsed ISO fields directly from the core switch.
+![ISO 8583 Switch Inspector](docs/images/02_iso8583_switch.png)
+
+### 4. Client Cryptographic Sandbox & Validation Toolbox
+Pure TypeScript AES-256-GCM encryption/decryption sandbox and HMAC-SHA256 canonical signature calculator.
+![Crypto Toolbox](docs/images/04_crypto_toolbox.png)
+
+### 5. Persistent Audit Ledger & History
+Complete chronological history of all network dispatches with latency tracking, status codes, and JSON/CSV export.
+![Audit Ledger](docs/images/03_audit_ledger.png)
+
+---
+
 ## 🚀 Quick Start
 
 ### 1. Start Kirara Gateway Server (Switch Backend)
