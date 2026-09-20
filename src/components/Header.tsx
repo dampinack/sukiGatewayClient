@@ -9,7 +9,9 @@ import {
   Settings,
   ShieldCheck,
   XCircle,
+  Coins,
   LayoutDashboard,
+  Blocks,
 } from 'lucide-react';
 import { apiService } from '../services/api-client';
 import { EnvironmentProfile } from '../types/gateway';
@@ -20,8 +22,8 @@ interface HeaderProps {
   onSelectProfile: (id: string) => void;
   onOpenProfileModal: () => void;
   onOpenCryptoToolbox: () => void;
-  activeTab: 'console' | 'switch' | 'ledger' | 'crypto';
-  onSelectTab: (tab: 'console' | 'switch' | 'ledger' | 'crypto') => void;
+  activeTab: 'console' | 'switch' | 'ledger' | 'crypto' | 'btcpay' | 'blockchain';
+  onSelectTab: (tab: 'console' | 'switch' | 'ledger' | 'crypto' | 'btcpay' | 'blockchain') => void;
   tokenStatus: { hasToken: boolean; isAcquiring: boolean };
   onAcquireToken: () => void;
 }
@@ -124,6 +126,28 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <ShieldCheck className="w-3.5 h-3.5" />
               <span>Crypto Toolbox</span>
+            </button>
+            <button
+              onClick={() => onSelectTab('btcpay')}
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1.5 ${
+                activeTab === 'btcpay'
+                  ? 'bg-amber-600 text-white shadow-md shadow-amber-600/30'
+                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
+              }`}
+            >
+              <Coins className="w-3.5 h-3.5 text-amber-400" />
+              <span>BTCPay Greenfield</span>
+            </button>
+            <button
+              onClick={() => onSelectTab('blockchain')}
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center space-x-1.5 ${
+                activeTab === 'blockchain'
+                  ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30'
+                  : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
+              }`}
+            >
+              <Blocks className="w-3.5 h-3.5 text-emerald-400" />
+              <span>BlockchainWorks</span>
             </button>
           </nav>
 
@@ -242,6 +266,18 @@ export const Header: React.FC<HeaderProps> = ({
             className={`py-1 px-2 rounded ${activeTab === 'crypto' ? 'text-indigo-400 font-bold' : 'text-slate-400'}`}
           >
             Crypto
+          </button>
+          <button
+            onClick={() => onSelectTab('btcpay')}
+            className={`py-1 px-2 rounded ${activeTab === 'btcpay' ? 'text-amber-400 font-bold' : 'text-slate-400'}`}
+          >
+            BTCPay
+          </button>
+          <button
+            onClick={() => onSelectTab('blockchain')}
+            className={`py-1 px-2 rounded ${activeTab === 'blockchain' ? 'text-emerald-400 font-bold' : 'text-slate-400'}`}
+          >
+            Blockchain
           </button>
         </div>
 

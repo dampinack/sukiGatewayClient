@@ -4,6 +4,8 @@ import { PaymentConsole } from './components/PaymentConsole';
 import { SwitchInspector } from './components/SwitchInspector';
 import { AuditLedger } from './components/AuditLedger';
 import { CryptoToolbox } from './components/CryptoToolbox';
+import { BTCPayConsole } from './components/BTCPayConsole';
+import { BlockchainExplorer } from './components/BlockchainExplorer';
 import { ProfileModal } from './components/ProfileModal';
 import { CashierSimulatorModal } from './components/CashierSimulatorModal';
 import { CodeExporterModal } from './components/CodeExporterModal';
@@ -13,9 +15,9 @@ import { EnvironmentProfile } from './types/gateway';
 export function App() {
   const [profiles, setProfiles] = useState<EnvironmentProfile[]>(() => apiService.getProfiles());
   const [activeProfileId, setActiveProfileId] = useState<string>(() => apiService.getActiveProfileId());
-  const [activeTab, setActiveTab] = useState<'console' | 'switch' | 'ledger' | 'crypto'>(() => {
+  const [activeTab, setActiveTab] = useState<'console' | 'switch' | 'ledger' | 'crypto' | 'btcpay' | 'blockchain'>(() => {
     const param = new URLSearchParams(window.location.search).get('tab');
-    if (param === 'switch' || param === 'ledger' || param === 'crypto') return param;
+    if (param === 'switch' || param === 'ledger' || param === 'crypto' || param === 'btcpay' || param === 'blockchain') return param;
     return 'console';
   });
   
@@ -123,6 +125,14 @@ export function App() {
 
         {activeTab === 'crypto' && (
           <CryptoToolbox profile={activeProfile} />
+        )}
+
+        {activeTab === 'btcpay' && (
+          <BTCPayConsole />
+        )}
+
+        {activeTab === 'blockchain' && (
+          <BlockchainExplorer />
         )}
       </main>
 
